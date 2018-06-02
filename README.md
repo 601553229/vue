@@ -1,12 +1,12 @@
-# test
+# myvue
 
-> A Vue.js project
+> test vue 
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install
+npm install 
 
 # serve with hot reload at localhost:8080
 npm run dev
