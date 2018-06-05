@@ -1,19 +1,16 @@
 <template>
-  <div class="hello1">
+  <div class="hello">
     <h1>{{ msg }}</h1>
-    <router-link id="Home" to="/home"> 跳转我的</router-link>
-    <router-link to="order">我的子页面</router-link>
-    <router-link to="list">我的子页面2</router-link>
-    <router-view></router-view>
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   data () {
     return {
-      msg: '首页'
+      msg: '我的???'
     }
   }
 }

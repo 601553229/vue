@@ -1,19 +1,22 @@
 <template>
-  <div class="hello1">
-    <h1>{{ msg }}</h1>
-    <router-link id="Home" to="/home"> 跳转我的</router-link>
-    <router-link to="order">我的子页面</router-link>
-    <router-link to="list">我的子页面2</router-link>
-    <router-view></router-view>
+  <div class="hello111">
+    <div>订单列表</div>
+    <ul>
+      <li>9475124512</li>
+      <li>9475124513</li>
+      <li>9475124514</li>
+      <li>9475124515</li>
+    </ul>
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Order',
   data () {
     return {
-      msg: '首页'
+      msg: '我的订单'
     }
   }
 }
