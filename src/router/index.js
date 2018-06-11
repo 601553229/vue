@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Index from '@/components/Index'
 import Home from '@/components/Home'
-import Order from '@/components/Order'
-import List from '@/components/List'
+import Condition from '@/components/Condition'
+import IceBox from '@/components/IceBox'
+import ProductDetail from '@/components/ProductDetail'
 
 Vue.use(Router)
 
@@ -11,17 +12,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'Index',
+      component: Index,
         children:[
-            { path: 'order',component:Order},
-            { path: 'list', component:List}
+            { path: 'Condition',component:Condition},
+            { path: 'IceBox', component:IceBox}
         ]
     },
     {
         path: '/home',
         name: 'Home',
         component: Home
-    }
+    },
+      {
+          path: '/productDetail',
+          name:'ProductDetail',
+          component:ProductDetail
+      }
   ]
 })

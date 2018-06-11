@@ -1,24 +1,22 @@
 <template>
-  <div class="hello222">
-    <div>我的列表</div>
-    <ul>
-      <li>111</li>
-      <li>222</li>
-      <li>333</li>
-      <li>444</li>
-    </ul>
+  <div class="hello">
+    <div>订单{{ msg }} 详情</div>
     
   </div>
 </template>
 
 <script>
 export default {
-  name: 'List',
+  name: 'ProductDetail',
   data () {
     return {
-      msg: '我的订单'
+      msg: this.$route.params.id//this.$route.query.id 两种接受参数方式
+
     }
-  }
+  },
+    mounted: function () {
+        console.log(this.$route.params.id);
+    }
 }
 </script>
 
