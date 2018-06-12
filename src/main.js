@@ -4,13 +4,37 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import FastClick from 'fastclick'
+import axios from 'axios'
+import qs from 'qs'
 Vue.config.productionTip = false;
+Vue.prototype.$axios = axios;
+
+//处理参数
+axios.interceptors.request.use(function(config){
+    //在发送请求之前做某事
+    if(config.method === 'post'){
+        config.data=qs.stringify(config.data);
+    }
+    return config;
+},function(error){
+    //请求错误时做些事
+    return Promise.reject(error);
+});
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: {App},
+    template: '<App/>'
+});
+//设置页面的title，路由发生变化修改页面title
+router.beforeEach((to, from, next) => {
+    if (to.meta.title) {
+        document.title = to.meta.title;
+    }
+    console.log(from);
+    next();
 });
 FastClick.attach(document.body);
 (function (doc, win) {

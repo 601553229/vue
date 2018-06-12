@@ -1,35 +1,39 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    
-  </div>
+    <div class="home">
+        <div class="homeTitle">{{ msg }}</div>
+        <ul>
+            <li>我的订单</li>
+            <li>我的钱包</li>
+            <li>我的地址</li>
+        </ul>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'Home',
-  data () {
-    return {
-      msg: '我的???'
+    export default {
+        name: 'Home',
+        data () {
+            return {
+                msg: '个人中心'
+            }
+        }
     }
-  }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+    .homeTitle {
+        line-height: 0.88rem;
+    }
+
+    .home {
+        padding: 0 0.5rem;
+    }
+
+    .home ul li {
+        font-size: 0.28rem;
+        color: #666;
+        text-align: left;
+        line-height: 0.8rem;
+    }
 </style>

@@ -9,25 +9,34 @@ import ProductDetail from '@/components/ProductDetail'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Index',
-      component: Index,
-        children:[
-            { path: 'Condition',component:Condition},
-            { path: 'IceBox', component:IceBox}
-        ]
-    },
-    {
-        path: '/home',
-        name: 'Home',
-        component: Home
-    },
-      {
-          path: '/productDetail',
-          name:'ProductDetail',
-          component:ProductDetail
-      }
-  ]
+    routes: [
+        {
+            path: '/',
+            name: 'Index',
+            component: Index,
+            meta: {
+                title: '首页'
+            },
+            children: [
+                {path: '/Condition', component: Condition},
+                {path: '/IceBox', component: IceBox}
+            ], redirect: '/IceBox'//默认显示子路由
+        },
+        {
+            path: '/home',
+            name: 'Home',
+            component: Home,
+            meta: {
+                title: '我的'
+            }
+        },
+        {
+            path: '/productDetail',
+            name: 'ProductDetail',
+            component: ProductDetail,
+            meta: {
+                title: '订单详情'
+            }
+        }
+    ]
 })
