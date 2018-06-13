@@ -4,12 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import FastClick from 'fastclick'
-import axios from 'axios'
-import qs from 'qs'
-Vue.config.productionTip = false;
+import axios from './axios'//封装了一下axios
 Vue.prototype.$axios = axios;
 
-//处理参数
+Vue.config.productionTip = false;
+
+/*import axios from 'axios'
+import qs from 'qs'
+Vue.prototype.$axios = axios;
+//post传参序列化
 axios.interceptors.request.use(function(config){
     //在发送请求之前做某事
     if(config.method === 'post'){
@@ -19,7 +22,9 @@ axios.interceptors.request.use(function(config){
 },function(error){
     //请求错误时做些事
     return Promise.reject(error);
-});
+});*/
+
+
 
 /* eslint-disable no-new */
 new Vue({
@@ -33,7 +38,6 @@ router.beforeEach((to, from, next) => {
     if (to.meta.title) {
         document.title = to.meta.title;
     }
-    console.log(from);
     next();
 });
 FastClick.attach(document.body);

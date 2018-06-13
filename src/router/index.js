@@ -18,8 +18,8 @@ export default new Router({
                 title: '首页'
             },
             children: [
-                {path: '/Condition', component: Condition},
-                {path: '/IceBox', component: IceBox}
+                {path: '/Condition', component: Condition,meta:{title:'首页2'}},
+                {path: '/IceBox', component: IceBox,meta:{title:'首页1'}}
             ], redirect: '/IceBox'//默认显示子路由
         },
         {

@@ -28,31 +28,54 @@
             }
         },
         created: function () {
-            this.$axios({
-                method: 'post',
-                url: 'http://localhost/cs/backend/web/index.php?r=test/index',
-                dataType: "json",
-            }).then(function(res){
-                console.log(res.data);
+            this.$axios.getAddressJson().then(function (res) {
+                console.log(res)
+            },function (res) {
+                console.log("error:"+res)
             });
-            this.$axios({
-                method: 'post',
-                url: 'http://yxianypin.jieyoushequ.com/jieyou2/open/web/index.php?r=web-app',
-                xhrFields: {withCredentials: true},
-                dataType: "json",
-                contentType: "application/json-rpc",
-                data: {
-                    jsonrpc: "2.0",
-                    method: "OrderListV",
-                    params: {phone:'18335182398'},
-                    id: "1"
-                },
-                responseType: 'json' // 默认的
+
+            this.$axios.getCateJson().then(function (res) {
+                console.log(res)
+            },function (res) {
+                console.log("error:"+res)
+            });
+
+            //使用封装好的axios获取json-rpc接口数据
+            this.$axios.getRpcJson('http://yxianypin.jieyoushequ.com/jieyou2/open/web/index.php?r=web-app',{
+                jsonrpc: "2.0",
+                method: "OrderListV",
+                params: {phone:'18335182398'},
+                id: "1"
             }).then(function(res){
-                console.log(res.data);
-            }).catch(function(err){
-                console.log(err);
+                console.log(res,'success')
+            },function(res){
+                console.log(res,'error')
             })
+//            this.$axios({
+//                method: 'post',
+//                url: 'http://localhost/cs/backend/web/index.php?r=test/index',
+//                dataType: "json",
+//            }).then(function(res){
+//                console.log(res.data);
+//            });
+//            this.$axios({
+//                method: 'post',
+//                url: 'http://yxianypin.jieyoushequ.com/jieyou2/open/web/index.php?r=web-app',
+//                xhrFields: {withCredentials: true},
+//                dataType: "json",
+//                contentType: "application/json-rpc",
+//                data: {
+//                    jsonrpc: "2.0",
+//                    method: "OrderListV",
+//                    params: {phone:'18335182398'},
+//                    id: "1"
+//                },
+//                responseType: 'json' // 默认的
+//            }).then(function(res){
+//                console.log(res.data);
+//            }).catch(function(err){
+//                console.log(err);
+//            })
         },
         methods: {
             proDetail: function (id) {
