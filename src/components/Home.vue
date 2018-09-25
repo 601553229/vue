@@ -2,7 +2,7 @@
     <div class="home">
         <div class="homeTitle">{{ msg }}</div>
         <ul>
-            <li>我的订单</li>
+            <li>我的订单111</li>
             <li>我的钱包</li>
             <li>我的地址</li>
         </ul>
