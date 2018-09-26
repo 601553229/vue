@@ -3,8 +3,8 @@
         <div class="homeTitle">{{ msg }}</div>
         <ul>
             <li>我的订单111</li>
-            <li>我的钱包</li>
-            <li>我的地址</li>
+            <li>我的钱包222</li>
+            <li>我的地址333</li>
         </ul>
     </div>
 </template>
