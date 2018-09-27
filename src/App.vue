@@ -25,7 +25,7 @@ ul, li, ol { list-style: none; }
 button, input { border: 0;background: 0; -webkit-appearance: none;outline: 0 }
 a:hover{ text-decoration: none; }
 a img{border:0}
-a { -webkit-touch-callout: none; text-decoration: none;outline: 0;border:none;-webkit-tap-highlight-color: transparent;-webkit-user-select: none;}
+a { -webkit-touch-callout: none; text-decoration: none;outline: 0;border:none;-webkit-tap-highlight-color: transparent;-webkit-user-select: none;color:#000}
 ::-webkit-input-placeholder { color: #c3c3c3;font-family:"Microsoft YaHei", Helvetica}
 label {cursor:pointer;}
 *{margin: 0;padding: 0;box-sizing: border-box;outline: 0;-webkit-tap-highlight-color: transparent;  -ms-word-break:break-all;word-break:break-all;-ms-word-wrap:break-word;word-wrap:break-word;-webkit-text-size-adjust: none;}

@@ -5,10 +5,11 @@ import App from './App'
 import router from './router'
 import FastClick from 'fastclick'
 import axios from './axios'//封装了一下axios
+import VueAwesomeSwiper from 'vue-awesome-swiper';//引入vue swiper插件
+
 Vue.prototype.$axios = axios;
-
 Vue.config.productionTip = false;
-
+Vue.use(VueAwesomeSwiper);
 /*import axios from 'axios'
 import qs from 'qs'
 Vue.prototype.$axios = axios;

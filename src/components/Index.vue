@@ -1,10 +1,42 @@
 <template>
     <div class="index">
         <div class="banner">
-            <img src="../assets/images/banner.png" alt="">
+            <img src="../assets/images/banner.jpg" alt="">
         </div>
-
-        <div class="tabBtn">
+        <img src="../assets/images/item_top1.jpg" class="tipImg" alt="">
+        <swiper :options="swiperOption" ref="mySwiper">
+            <!-- slides -->
+            <swiper-slide>
+                <img src="http://yxianypin.jieyoushequ.com/jieyou2/daojia/web/images/inst2.jpg" alt="">
+            </swiper-slide>
+            <swiper-slide>
+                <img src="http://yxianypin.jieyoushequ.com/jieyou2/daojia/web/images/inst3.jpg" alt="">
+            </swiper-slide>
+            <swiper-slide>
+                <img src="http://yxianypin.jieyoushequ.com/jieyou2/daojia/web/images/inst4.jpg" alt="">
+            </swiper-slide>
+            <swiper-slide>
+                <img src="http://yxianypin.jieyoushequ.com/jieyou2/daojia/web/images/inst5.jpg" alt="">
+            </swiper-slide>
+            <!-- Optional controls -->
+            <div class="swiper-pagination"  slot="pagination"></div>
+        </swiper>
+        <IndexItem></IndexItem>
+        <div class="trust">
+            <div class="trust-title">
+                <img src="../assets/images/item_top3.jpg" alt="">
+            </div>
+            <div class="trust-item">
+                <div class="trust-big">
+                    <img src="../assets/images/imgtip1.jpg" alt="">
+                </div>
+                <div class="trust-small">
+                    <img src="../assets/images/imgtip2.jpg" alt="">
+                    <img src="../assets/images/imgtip3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!--<div class="tabBtn">
             <router-link to="IceBox">
                 <div :class="btnColor==1? 'red':'black'" v-on:click="changeStatus">冰箱</div>
             </router-link>
@@ -12,21 +44,49 @@
                 <div :class="btnColor==2? 'red':'black'" v-on:click="changeStatus2">空调</div>
             </router-link>
         </div>
+        <router-view></router-view>-->
 
-        <router-view></router-view>
-        <router-link to="Home">
-            <div class="myHome">我的</div>
-        </router-link>
     </div>
 </template>
 
 <script>
+    import { swiper, swiperSlide } from 'vue-awesome-swiper'
+    import 'swiper/dist/css/swiper.min.css';
+    import IndexItem from './IndexItem.vue'
     export default {
         name: 'Index',
         data () {
             return {
                 msg: 'index',
-                btnColor: 1
+                btnColor: 1,
+                swiperOption: {
+                    notNextTick: true,
+                    autoplay: true,
+                    speed:1000,
+                    grabCursor : true,
+                    setWrapperSize :true,
+                    autoHeight: true,
+                    paginationType:"bullets",
+                    paginationClickable :true,
+                    mousewheelControl : true,
+                    observeParents:true,
+                    loop:true,
+//                    pagination: {
+//                        el: ".swiper-pagination",
+//                        clickable: true
+//                    }
+                }
+
+            }
+        },
+        components:{
+            swiper,
+            swiperSlide,
+            IndexItem
+        },
+        computed: {
+            swiper() {
+                return this.$refs.mySwiper.swiper
             }
         },
         methods: {
@@ -36,13 +96,17 @@
             changeStatus2: function () {
                 this.btnColor = 2;
             }
+        },
+        mounted(){
+            //console.log('this is current swiper instance object', this.swiper)
+            //this.swiper.slideTo(3, 1000, false)
         }
 
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style  scoped>
     h1, h2 {
         font-weight: normal;
     }
@@ -63,7 +127,8 @@
 
     .banner {
         width: 100%;
-        height: auto;
+        height: 0;
+        padding-bottom: 50%;
         overflow: hidden;
     }
 
@@ -91,14 +156,6 @@
         border-right: 1px solid #ddd;
     }
 
-    .red {
-        color: red;
-    }
-
-    .black {
-        color: #666;
-    }
-
     .myHome {
         width: 100%;
         height: 0.88rem;
@@ -110,5 +167,54 @@
         bottom: 0;
         left: 0;
         color: #fff;
+    }
+    .tipImg{
+        width:100%;
+        display: block;
+    }
+    .swiper-slide img{
+        width:100%;
+    }
+    .trust {
+        background: #fff;
+        margin-top: 0.2rem;
+        padding-bottom: 0.55rem;
+        width:100%;
+        height:auto;
+        overflow: hidden;
+    }
+    .trust-item {
+        width: 100%;
+        height: 2.7rem;
+        display: flex;
+        justify-content: center;
+    }
+    .trust-title img{
+        width:100%;
+    }
+    .trust-big {
+        width: 3.7rem;
+        height: 100%;
+    }
+    .trust-item img {
+        width: 100%;
+    }
+    .trust-small {
+        width: 3.8rem;
+        height: 100%;
+        background: #fff;
+        padding-left: 0.1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .trust-small img {
+        width: 100%;
+        height: 1.3rem;
+    }
+</style>
+<style>
+    .swiper-pagination-bullet-active{
+        background:#ea393a!important;
     }
 </style>
