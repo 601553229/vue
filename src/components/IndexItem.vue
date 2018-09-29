@@ -2,30 +2,12 @@
     <div class="index">
         <img src="../assets/images/item_top2.jpg" class="tipImg" alt="">
         <div class="items">
-            <a href="#">
+            <router-link v-for="item in items" :key="item.id" :to="'/Enquiry/'+item.id" >
                 <div class="item">
-                    <img src="../assets/images/kongtiao.jpg" alt="">
+                    <img :src="require(`../assets/images/${item.imgPath}.jpg`)" alt="">
                     <p>空调</p>
                 </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <img src="../assets/images/bingxiang.jpg" alt="">
-                    <p>冰箱</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <img src="../assets/images/dianshi.jpg" alt="">
-                    <p>电视</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="item">
-                    <img src="../assets/images/xiyiji.jpg" alt="">
-                    <p>洗衣机</p>
-                </div>
-            </a>
+            </router-link>
         </div>
     </div>
 </template>
@@ -33,6 +15,7 @@
 <script>
     export default {
         name: 'IndexItem',
+        props:['items'],
         data () {
             return {
 
@@ -50,7 +33,7 @@
             }
         },
         mounted(){
-
+            console.log(this.items);
         }
 
     }

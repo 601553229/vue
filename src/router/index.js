@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Home from '@/components/Home'
 import Condition from '@/components/Condition'
 import IceBox from '@/components/IceBox'
+import Enquiry from '@/components/Enquiry'
 import ProductDetail from '@/components/ProductDetail'
 
 Vue.use(Router)
@@ -19,7 +20,7 @@ export default new Router({
             },
             children: [
                 {path: '/Condition', component: Condition, meta: {title: '首页2'}},
-                {path: '/IceBox', component: IceBox, meta: {title: '首页1'}}
+                {path: '/IceBox', component: IceBox, meta: {title: '首页'}}
             ],
             redirect: '/IceBox'//默认显示子路由
         },
@@ -29,6 +30,14 @@ export default new Router({
             component: Home,
             meta: {
                 title: '我的'
+            }
+        },
+        {
+            path: '/enquiry/:id',
+            name: 'Enquiry',
+            component: Enquiry,
+            meta: {
+                title: '询价'
             }
         },
         {

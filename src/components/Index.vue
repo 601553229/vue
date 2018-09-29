@@ -21,7 +21,7 @@
             <!-- Optional controls -->
             <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
-        <IndexItem></IndexItem>
+        <IndexItem :items="item"></IndexItem>
         <div class="trust">
             <div class="trust-title">
                 <img src="../assets/images/item_top3.jpg" alt="">
@@ -59,6 +59,12 @@
             return {
                 msg: 'index',
                 btnColor: 1,
+                item:[
+                    {'name':'空调','id':'23','imgPath':'kongtiao'},
+                    {'name':'冰箱','id':'21','imgPath':'bingxiang'},
+                    {'name':'电视','id':'20','imgPath':'dianshi'},
+                    {'name':'洗衣机','id':'22','imgPath':'xiyiji'},
+                ],
                 swiperOption: {
                     notNextTick: true,
                     autoplay: true,
