@@ -22,7 +22,7 @@ export default new Router({
                 {path: '/Condition', component: Condition, meta: {title: '首页2'}},
                 {path: '/IceBox', component: IceBox, meta: {title: '首页'}}
             ],
-            redirect: '/IceBox'//默认显示子路由
+            //redirect: '/IceBox'//默认显示子路由
         },
         {
             path: '/home',
