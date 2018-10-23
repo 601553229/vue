@@ -45,7 +45,6 @@
             </router-link>
         </div>
         <router-view></router-view>-->
-
     </div>
 </template>
 
@@ -67,7 +66,10 @@
                 ],
                 swiperOption: {
                     notNextTick: true,
-                    autoplay: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    },
                     speed:1000,
                     grabCursor : true,
                     setWrapperSize :true,
@@ -77,10 +79,10 @@
                     mousewheelControl : true,
                     observeParents:true,
                     loop:true,
-//                    pagination: {
-//                        el: ".swiper-pagination",
-//                        clickable: true
-//                    }
+                    pagination: {
+                       el: ".swiper-pagination",
+                       clickable: true
+                    }
                 }
 
             }
@@ -221,6 +223,6 @@
 </style>
 <style>
     .swiper-pagination-bullet-active{
-        background:#ea393a!important;
+        background:#ffd3d6!important;
     }
 </style>

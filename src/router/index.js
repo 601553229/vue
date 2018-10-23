@@ -33,7 +33,8 @@ export default new Router({
             }
         },
         {
-            path: '/enquiry/:id',
+            //path: '/enquiry/:id',
+            path: '/enquiry',
             name: 'Enquiry',
             component: Enquiry,
             meta: {
