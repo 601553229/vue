@@ -2,10 +2,11 @@
     <div class="index">
         <img src="../assets/images/item_top2.jpg" class="tipImg" alt="">
         <div class="items">
-            <router-link v-for="item in items" :key="item.id" :to="'/Enquiry/'+item.id" >
+            <!--<router-link v-for="item in items" :key="item.id" :to="'/Enquiry/'+item.id" >-->
+            <router-link v-for="item in items" :key="item.id" :to="'/'" >
                 <div class="item">
                     <img :src="require(`../assets/images/${item.imgPath}.jpg`)" alt="">
-                    <p>空调</p>
+                    <p>{{item.name}}</p>
                 </div>
             </router-link>
         </div>
@@ -34,6 +35,7 @@
         },
         mounted(){
             console.log(this.items);
+            console.log(this.$route.params.id);
         }
 
     }
